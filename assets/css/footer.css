@@ -1,0 +1,150 @@
+/* -----------------------------------
+   THEME COLORS
+----------------------------------- */
+:root {
+    --bg-light: #F7F3EB;
+    --text-dark: #2B2926;
+    --wood-brown: #7A5938;
+    --sand: #C3A887;
+    --forest: #3B5B4C;
+}
+
+/* -----------------------------------
+   FOOTER WRAPPER
+----------------------------------- */
+.modern-footer {
+    background: var(--sand);
+    padding: 60px 0 40px;
+    color: var(--text-dark);
+    border-top: 2px solid var(--sand);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 40px;
+}
+
+/* -----------------------------------
+   TEXT + LINKS
+----------------------------------- */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin: 8px 0;
+}
+
+.footer-col ul a {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.footer-col ul a:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+/* -----------------------------------
+   TITLES + BRAND
+----------------------------------- */
+.footer-title {
+    color: var(--forest);
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.footer-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--forest);
+}
+
+.footer-text {
+    color: var(--text-dark);
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* -----------------------------------
+   NEWSLETTER BOX (NO TRANSPARENCY)
+----------------------------------- */
+.newsletter-box {
+    display: flex;
+    margin-top: 10px;
+    background: var(--sand);
+    border: 2px solid var(--forest);
+    border-radius: 35px;
+    padding: 6px;
+}
+
+.newsletter-box input {
+    flex: 1;
+    background: var(--bg-light);
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    color: var(--text-dark);
+    border-radius: 25px;
+}
+
+.newsletter-box button {
+    background: var(--forest);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.newsletter-box button:hover {
+    background: var(--wood-brown);
+}
+
+/* -----------------------------------
+   SOCIAL ICONS (SOLID COLORS)
+----------------------------------- */
+.footer-social {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+}
+
+.footer-social a {
+    color: var(--bg-light);
+    font-size: 1.1rem;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: var(--forest);
+    border: 2px solid var(--forest);
+    transition: 0.3s ease;
+}
+
+.footer-social a:hover {
+    background: var(--wood-brown);
+    border-color: var(--wood-brown);
+}
+
+/* -----------------------------------
+   BOTTOM BAR
+----------------------------------- */
+.footer-bottom {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    text-align: center;
+    padding-top: 15px;
+    border-top: 2px solid var(--sand);
+}
