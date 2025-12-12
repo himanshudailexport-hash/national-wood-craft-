@@ -283,7 +283,7 @@ form {
     box-shadow: 0 0 0 0.2rem rgba(59, 91, 76, 0.25);
 }
 
-/* Button */
+
 .btn-primary {
     background-color: var(--forest) ;
     border-color: var(--forest) ;
@@ -308,12 +308,12 @@ form {
     border-color: var(--forest) ;
 }
 
-/* Alerts */
+
 .alert-danger {
     border-left: 5px solid #b50000;
 }
 
-/* CKEditor override container */
+
 .cke_chrome {
     border-radius: var(--radius) ;
     border-color: var(--sand) ;
@@ -323,23 +323,16 @@ form {
 
 
 /******************************************************************
-# create products
+#  update blogs  
 *******************************************************************/
 
 
-:root {
-    --bg-light: #F7F3EB;
-    --text-dark: #2B2926;
-    --forest: #3B5B4C;
-    --wood-brown: #7A5938;
-    --sand: #C3A887;
-}
 
 
-body.bg-light {
+/* body.bg-light {
     background: var(--bg-light) !important;
     color: var(--text-dark);
-}
+} */
 
 
 label, h3 {
@@ -361,7 +354,7 @@ label, h3 {
     box-shadow: 0 0 0 2px rgba(59,91,76,0.25);
 }
 
-/* Buttons */
+
 .btn-primary {
     background: var(--forest);
     border: none;
@@ -380,27 +373,28 @@ label, h3 {
     background: var(--forest);
 }
 
-/* CKEditor frame background */
+
 .cke_chrome {
-    border: 1px solid var(--sand) !important;
-    border-radius: 8px !important;
+    border: 1px solid var(--sand) ;
+    border-radius: 8px ;
     overflow: hidden;
 }
 
 .cke_top {
-    background: #fff !important;
-    border-bottom: 1px solid var(--sand) !important;
+    background: #fff ;
+    border-bottom: 1px solid var(--sand) ;
 }
 
 .cke_contents {
-    background: #ffffff !important;
+    background: #ffffff ;
 }
 
 .cke_editable {
-    background: #ffffff !important;
-    color: var(--text-dark) !important;
-    padding: 18px !important;
-    min-height: 280px !important;
+    background: #ffffff ;
+    color: var(--text-dark) ;
+    padding: 18px ;
+    min-height: 280px ;
     font-size: 16px;
     line-height: 1.6;
 }
+

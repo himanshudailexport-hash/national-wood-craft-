@@ -196,7 +196,6 @@ body {
   background-color: var(--forest);
 }
 
-
 .product-box {
   border-radius: 16px;
   overflow: hidden;
@@ -213,7 +212,6 @@ body {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
 }
 
-
 /* .product-box img {
   height: 170px;       
   object-fit: cover;
@@ -222,10 +220,10 @@ body {
 
 .product-box img {
   width: 100%;
-  height: 220px;        
-  object-fit: contain;  
+  height: 220px;
+  object-fit: contain;
   background-color: #fff;
-  padding: 5px;       
+  padding: 5px;
 }
 
 .product-info {
@@ -248,7 +246,7 @@ body {
   border: none;
   border-radius: 8px;
   transition: 0.3s ease;
-  padding: 6px 8px;      
+  padding: 6px 8px;
   font-size: 0.85rem;
 }
 
@@ -271,8 +269,6 @@ body {
   background-color: var(--wood-brown);
   color: #fff;
 }
-
-
 
 /* =============================================
    PRODUCT DETAILS PAGE
@@ -570,6 +566,100 @@ iframe {
 }
 
 /* =============================================
+   blog section 
+============================================= */
+
+.section-title {
+  color: var(--wood-brown);
+  font-weight: 700;
+}
+
+.blog-card {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(3, 3, 3, 0.35);
+}
+
+.blog-img {
+  object-fit: cover;
+  height: 250px;
+  width: 100%;
+}
+
+.blog-title {
+  color: var(--text-dark);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.blog-desc {
+  font-size: 15px;
+}
+
+/* =============================================
+   blog detail page  
+============================================= */
+
+/* body {
+  background: #ffffff;
+  color: #2b2926;
+}
+
+.blog-container {
+  max-width: 1000px;
+  margin: auto;
+  padding-top: 60px;
+}
+
+.blog-date {
+  color: #7a7a7a;
+  font-size: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.blog-title {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.blog-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  max-height: 450px;
+  object-fit: cover;
+}
+
+.blog-meta-desc {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.blog-full-content {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #2b2926;
+}
+
+.blog-full-content h2,
+.blog-full-content h3 {
+  margin-top: 35px;
+  font-weight: 700;
+} */
+
+/* =============================================
    FOOTER
 ============================================= */
 
@@ -669,6 +759,7 @@ iframe {
 
 .footer-social a {
   color: var(--bg-light);
+  text-decoration: none;
   font-size: 1.1rem;
   width: 38px;
   height: 38px;

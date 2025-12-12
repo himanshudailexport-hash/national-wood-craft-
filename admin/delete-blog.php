@@ -22,5 +22,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-header('Location: test.php');
+header('Location: blog-management.php');
 exit;

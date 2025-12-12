@@ -1,6 +1,6 @@
 <?php
 include "../config/db.php";
-require "admin-auth.php";   // protect this page
+require "admin-auth.php";   
 ?>
 
 
@@ -68,7 +68,7 @@ require "admin-auth.php";   // protect this page
       <li>
         <a href="#" class="toggle-submenu"><span><i class="fa-solid fa-cart-shopping me-2"></i> Blog managements</span> <i class="fa-solid fa-angle-down"></i></a>
         <ul class="submenu">
-          <li><a href="test.php"><i class="fa-solid fa-users me-2"></i> show all Blogs</a></li>
+          <li><a href="blog-management.php"><i class="fa-solid fa-users me-2"></i> show all Blogs</a></li>
           <li><a href="add-blog.php"><i class="fa-solid fa-table me-2"></i>Create Blog</a></li>
         </ul>
       </li>

@@ -7,7 +7,7 @@ include "helpers.php";
 
 $id = intval($_GET['id'] ?? 0);
 if (!$id) {
-  header('Location: test.php');
+  header('Location: blog-management.php');
   exit;
 }
 
@@ -17,7 +17,7 @@ $stmt->execute();
 $res = $stmt->get_result();
 $blog = $res->fetch_assoc();
 if (!$blog) {
-  header('Location: test.php');
+  header('Location: blog-management.php');
   exit;
 }
 
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $con->prepare("UPDATE blogs SET slug=?, metatitle=?, metadescription=?, blogtitle=?, blogcontent=?, blog_image=? WHERE id=?");
     $stmt->bind_param('ssssssi', $slug, $metatitle, $metadescription, $blogtitle, $blogcontent, $imageFileName, $id);
     if ($stmt->execute()) {
-      header('Location: test.php');
+      header('Location: blog-management.php');
       exit;
     } else {
       $errors[] = 'DB error: ' . $stmt->error;
@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body class="bg-light">
   <div class="container py-4">
-    <a href="test.php" class="btn btn-secondary mb-3">← Back</a>
+    <a href="blog-management.php" class="btn btn-secondary mb-3">← Back</a>
     <h3>Edit Blog</h3>
 
     <?php if ($errors): foreach ($errors as $e): ?>

@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $con->prepare("INSERT INTO blogs (slug, metatitle, metadescription, blogtitle, blogcontent, blog_image) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('ssssss', $slug, $metatitle, $metadescription, $blogtitle, $blogcontent, $imageFileName);
         if ($stmt->execute()) {
-            header('Location: test.php');
+            header('Location: blog-management.php');
             exit;
         } else {
             $errors[] = 'DB error: ' . $stmt->error;
