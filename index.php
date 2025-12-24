@@ -18,7 +18,7 @@ $categoryQuery = $con->query("SELECT id, name FROM categories ORDER BY name ASC"
 $categories = $categoryQuery->fetch_all(MYSQLI_ASSOC);
 
 
-$catQuery = $con->prepare("SELECT id, name, image_path FROM categories ORDER BY id ASC");
+$catQuery = $con->prepare("SELECT id, name, image_path FROM categories ORDER BY id DESC Limit 4");
 $catQuery->execute();
 $catResult = $catQuery->get_result();
 
@@ -70,6 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- FONT AWESOME -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- custom css -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -79,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <?php include 'components/Header.php' ?>
         <!-- hero section start from here -->
-        <section class="container py-5">
+        <section class="container hero-section py-5">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <h1 class="display-4 fw-bold text-wood-brown">Premium Mango Wood Handicrafts</h1>
@@ -91,22 +93,143 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
             </div>
         </section>
+        <hr>
+        <!-- category section  -->
+        <section class="container mb-4">
+            <!-- <h2 class="text-center text-wood-brown mb-5 fw-bold">Shop by Category</h2> -->
+            <div class="row g-4 justify-content-center">
+
+                <?php
+                while ($cat = $catResult->fetch_assoc()) {
+                    $imgPath = ltrim($cat['image_path'], './');
+                ?>
+
+                    <div class="col-md-3 col-sm-6" >
+                        <a href="product.php?category=<?php echo $cat['id']; ?>" style="text-decoration:none;">
+                            <div class="category-mini-card">
+                                <img src="<?php echo $imgPath; ?>" alt="<?php echo $cat['name']; ?>">
+                                <h5><?php echo $cat['name']; ?></h5>
+                            </div>
+                        </a>
+                    </div>
+
+                <?php } ?>
+
+            </div>
+        </section>
+
+        <!-- ABOUT HERO -->
+        <section class="about-hero py-5">
+            <div class="container text-center" >
+                <h1 class="fw-bold mb-3 text-wood-brown">About Our Wooden Handicrafts</h1>
+                <p class="lead text-muted mx-auto about-intro">
+                    We craft premium wooden art with a deep connection to Indian heritage and design.
+                    <!-- Every product is handmade with precision, passion, and emotions that turn wood into art. -->
+                </p>
+            </div>
+            <section class="py-5">
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <div class="col-md-6 mb-4" >
+                            <img src="assets/image/about.png" class="img-fluid rounded-4 shadow about-img" alt="About Wooden Handicrafts">
+                        </div>
+
+                        <div class="col-md-6" >
+                            <h3 class="fw-bold text-wood-brown">Crafted With Natural Class</h3>
+                            <p class="text-muted">
+                                National Wood Craft is a trusted manufacturer of premium mango and sheesham wood decor and utility products. With a focus on fine craftsmanship, elegant finishing and long-lasting quality, we create products that enhance every home. Our wide range includes candle holders, wall decor, serving ware and organizers, supplied consistently to wholesalers, retailers and bulk buyers across regions, ensuring reliable quality, safe packaging and timely delivery for every order.
+                            </p>
+                            <p class="text-muted">
+                                Our team of master artisans make each piece by hand using ethically sourced wood.
+                                We support Indian craft communities and bring global-level wooden home décor products to you.
+                            </p>
+
+
+                            <ul class="list-unstyled text-muted">
+                                <li class="mb-2"><i class="fa-solid fa-check text-forest me-2"></i>100% Handmade premium quality</li>
+                                <li class="mb-2"><i class="fa-solid fa-leaf text-forest me-2"></i>Sustainable & environment friendly</li>
+                                <li class="mb-2"><i class="fa-solid fa-star text-forest me-2"></i>Designed following global luxury standards</li>
+                            </ul>
+                            <!-- <div class="text-center"> -->
+                            <a href="about.php" class="btn btn-forest px-4">
+                                View More
+                            </a>
+                            <!-- </div> -->
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </section>
+        <!-- counting -->
+        <!-- <section class="stats-section">
+            <div class="stat">
+                <h2 class="count" data-target="1500">0</h2>
+                <p>Happy Customers</p>
+            </div>
+
+            <div class="stat">
+                <h2 class="count" data-target="120">0</h2>
+                <p>Order Delevered </p>
+            </div>
+
+            <div class="stat">
+                <h2 class="count" data-target="10">0</h2>
+                <p>Years Experience</p>
+            </div>
+        </section> -->
+
+        
+
+        <!-- <script>
+            const counters = document.querySelectorAll('.count');
+            let started = false;
+
+            function startCounting() {
+                if (started) return;
+                started = true;
+
+                counters.forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const speed = 200; // lower = faster
+
+                    const updateCount = () => {
+                        const current = +counter.innerText.replace('+', '');
+                        const increment = Math.ceil(target / speed);
+
+                        if (current < target) {
+                            counter.innerText = current + increment;
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target + "+"; // 👈 add +
+                        }
+                    };
+
+                    updateCount();
+                });
+            }
+
+            // Trigger when section is visible
+            window.addEventListener('scroll', () => {
+                const section = document.querySelector('.stats-section');
+                const sectionTop = section.getBoundingClientRect().top;
+                const screenHeight = window.innerHeight;
+
+                if (sectionTop < screenHeight - 100) {
+                    startCounting();
+                }
+            });
+        </script> -->
 
 
         <!-- products   -->
-        <section class="category-section py-5 text-center">
+        <section class="category-section pt-5 text-center">
             <div class="container">
-                <h1 class="page-title mb-4 text-wood-brown fw-bold">Our Products</h1>
+                <h1 class="page-title  text-wood-brown fw-bold">Our Products</h1>
 
-                <div class="d-flex flex-wrap justify-content-center gap-3">
-                    <button class="category-btn active" data-category="all">All</button>
 
-                    <?php foreach ($categories as $cat) { ?>
-                        <button class="category-btn" data-category="<?= $cat['id']; ?>">
-                            <?= ucfirst($cat['name']); ?>
-                        </button>
-                    <?php } ?>
-                </div>
             </div>
         </section>
 
@@ -163,8 +286,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </section>
 
-        <script>
-            // CATEGORY FILTER 
+        
+
+
+        <!-- <script>
+            
             const buttons = document.querySelectorAll('.category-btn');
             const products = document.querySelectorAll('.product-card');
 
@@ -222,32 +348,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     alert("Added to cart!");
                 });
             });
-        </script>
+        </script> -->
 
 
-        <!-- category section  -->
-        <section class="container py-5">
-            <h2 class="text-center text-wood-brown mb-5 fw-bold">Shop by Category</h2>
-            <div class="row g-4 justify-content-center">
 
-                <?php
-                while ($cat = $catResult->fetch_assoc()) {
-                    $imgPath = ltrim($cat['image_path'], './');
-                ?>
-
-                    <div class="col-md-3 col-sm-6">
-                        <a href="product.php?category=<?php echo $cat['id']; ?>" style="text-decoration:none;">
-                            <div class="category-mini-card">
-                                <img src="<?php echo $imgPath; ?>" alt="<?php echo $cat['name']; ?>">
-                                <h5><?php echo $cat['name']; ?></h5>
-                            </div>
-                        </a>
-                    </div>
-
-                <?php } ?>
-
-            </div>
-        </section>
 
 
 
@@ -271,22 +375,255 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             } ?>
         </div>
 
+        <!-- <section class="strength-section">
+            <div class="container">
+
+                <h2 class="section-title">Our Strengths</h2>
+
+                <div class="strength-grid">
+
+                    <div class="strength-card">
+                        <div class="icon">
+                            <i class="fa-solid fa-hammer"></i>
+                        </div>
+                        <h4>Handcrafted Excellence</h4>
+                        <p>
+                            Each product is carefully handmade by skilled artisans using
+                            traditional woodworking techniques.
+                        </p>
+                    </div>
+
+                    <div class="strength-card">
+                        <div class="icon">
+                            <i class="fa-solid fa-tree"></i>
+                        </div>
+                        <h4>Premium Quality Wood</h4>
+                        <p>
+                            We use responsibly sourced, high-quality wood to ensure durability
+                            and timeless beauty.
+                        </p>
+                    </div>
+
+                    <div class="strength-card">
+                        <div class="icon">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <h4>Sustainable Craft</h4>
+                        <p>
+                            Our process respects nature by minimizing waste and promoting
+                            eco-friendly craftsmanship.
+                        </p>
+                    </div>
+
+                    <div class="strength-card">
+                        <div class="icon">
+                            <i class="fa-solid fa-pen-ruler"></i>
+                        </div>
+                        <h4>Custom Designs</h4>
+                        <p>
+                            We offer personalized designs tailored to your space, style, and
+                            functional needs.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="strength-grid">
+
+                    <div class="strength-card">
+                        <div class="icon">
+                            <i class="fa-solid fa-hammer"></i>
+                        </div>
+                        <h4>Handcrafted Excellence</h4>
+                        <p>
+                            Each product is carefully handmade by skilled artisans using
+                            traditional woodworking techniques.
+                        </p>
+                    </div>
+
+                    <div class="strength-card">
+                        <div class="icon">
+                            <i class="fa-solid fa-tree"></i>
+                        </div>
+                        <h4>Premium Quality Wood</h4>
+                        <p>
+                            We use responsibly sourced, high-quality wood to ensure durability
+                            and timeless beauty.
+                        </p>
+                    </div>
+
+                    <div class="strength-card">
+                        <div class="icon">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                        <h4>Sustainable Craft</h4>
+                        <p>
+                            Our process respects nature by minimizing waste and promoting
+                            eco-friendly craftsmanship.
+                        </p>
+                    </div>
+
+                    <div class="strength-card">
+                        <div class="icon">
+                            <i class="fa-solid fa-pen-ruler"></i>
+                        </div>
+                        <h4>Custom Designs</h4>
+                        <p>
+                            We offer personalized designs tailored to your space, style, and
+                            functional needs.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section> -->
+
+        <section class="strength-section">
+            <div class="container">
+
+                <h2 class="section-title">Our Strengths</h2>
+
+                <div class="strength-grid">
+
+                    <div class="strength-card">
+                        <div class="icon"><i class="fa-solid fa-hammer"></i></div>
+                        <h4>Handcrafted Excellence</h4>
+                        <p>Every product is handmade by skilled artisans.</p>
+                    </div>
+
+                    <div class="strength-card">
+                        <div class="icon"><i class="fa-solid fa-tree"></i></div>
+                        <h4>Premium Wood</h4>
+                        <p>High-quality, durable, and responsibly sourced wood.</p>
+                    </div>
+
+                    <div class="strength-card">
+                        <div class="icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h4>Eco-Friendly</h4>
+                        <p>Sustainable processes that respect nature.</p>
+                    </div>
+
+                    <div class="strength-card">
+                        <div class="icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                        <h4>Custom Designs</h4>
+                        <p>Made-to-order designs tailored to your needs.</p>
+                    </div>
+
+                    <div class="strength-card">
+                        <div class="icon"><i class="fa-solid fa-award"></i></div>
+                        <h4>Quality Finish</h4>
+                        <p>Fine polishing for a premium look & feel.</p>
+                    </div>
+
+                    <div class="strength-card">
+                        <div class="icon"><i class="fa-solid fa-box"></i></div>
+                        <h4>Secure Packaging</h4>
+                        <p>Safe packaging to prevent transit damage.</p>
+                    </div>
+
+                    <div class="strength-card">
+                        <div class="icon"><i class="fa-solid fa-truck-fast"></i></div>
+                        <h4>Timely Delivery</h4>
+                        <p>Reliable and fast product delivery.</p>
+                    </div>
+
+                    <div class="strength-card">
+                        <div class="icon"><i class="fa-solid fa-thumbs-up"></i></div>
+                        <h4>Customer Satisfaction</h4>
+                        <p>Trusted by customers across India.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="blog-section py-5">
+            <div class="container">
+                <h2 class="section-title text-center mb-4" data-aos="zoom-in-down" data-aos-delay="300">Latest Blogs</h2>
+
+                <div class="row g-4">
+
+                    <?php while ($b = $resultblog->fetch_assoc()): ?>
+                        <div class="col-md-4" data-aos="flip-down" data-aos-delay="300">
+                            <div class="blog-card shadow-sm">
+                                <img src="uploads/blog/<?= htmlspecialchars($b['blog_image']) ?>"
+                                    class="img-fluid blog-img" alt="Blog Image">
+
+                                <div class="blog-content p-3">
+                                    <h4 class="blog-title"><?= htmlspecialchars($b['blogtitle']) ?></h4>
+
+                                    <p class="blog-desc text-muted">
+                                        <?= htmlspecialchars(substr($b['metadescription'], 0, 120)) ?>...
+                                    </p>
+
+                                    <a href="blog-details.php?slug=<?= $b['slug'] ?>" class="btn btn-forest">
+                                        Read More
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+
+                </div>
+            </div>
+        </section>
+        <!-- WHY CHOOSE US -->
+        <section class="why-choose-us py-5">
+            <div class="text-center mb-4" data-aos="fade-buttom" data-aos-delay="300">
+                <h3 class="fw-bold text-wood-brown">Why Choose Us</h3>
+            </div>
+
+            <div class="card-bg ">
+                <div class="container text-center">
+                    <div class="row g-4">
+
+                        <div class="col-md-4" data-aos="fade-right">
+                            <div class="p-4 border-0 shadow-sm rounded-4 bg-white h-100 card-hover">
+                                <i class="fa-solid fa-gem fa-2x mb-3 text-wood-brown"></i>
+                                <h5 class="fw-bold">Premium Quality</h5>
+                                <p class="text-muted small">We never compromise on finish, durability, and premium feel.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4" data-aos="fade-up">
+                            <div class="p-4 border-0 shadow-sm rounded-4 bg-white h-100 card-hover">
+                                <i class="fa-solid fa-hands-holding fa-2x mb-3 text-wood-brown"></i>
+                                <h5 class="fw-bold">Authentic Craftsmanship</h5>
+                                <p class="text-muted small">Products are made by skilled craft artisans with decades of experience.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4" data-aos="fade-left">
+                            <div class="p-4 border-0 shadow-sm rounded-4 bg-white h-100 card-hover">
+                                <i class="fa-solid fa-globe fa-2x mb-3 text-wood-brown"></i>
+                                <h5 class="fw-bold">Global Shipping</h5>
+                                <p class="text-muted small">Our wooden art goes worldwide with safe packaging.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <!-- Hero Section -->
         <section class="contact-hero py-5 text-center">
-            <div class="container">
+            <div class="container" data-aos="fade-buttom" data-aos-delay="300">
                 <h1 class="fw-bold mb-3 text-wood-brown">Contact Us</h1>
                 <p class="lead mx-auto" style="max-width: 700px;">
                     Have questions about wooden handicrafts? Need custom work or business collaboration? We're here to help you.
                 </p>
             </div>
+
+
         </section>
 
-        <section class="py-5">
+        <section class="contact-hero pb-5">
             <div class="container">
                 <div class="row g-4">
-
-                    <!-- Contact Info -->
-                    <div class="col-md-5">
+                    <div class="col-md-5" >
                         <div class="p-4 border rounded-4 shadow-sm bg-white h-100 contact-info">
                             <h4 class="mb-3">Contact Information</h4>
 
@@ -300,14 +637,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <hr>
 
                             <h6 class="fw-bold mb-2"><i class="fa-regular fa-clock me-2 text-wood-brown"></i>Business Hours</h6>
-                            <p class="mb-1">Mon - Sat : 10AM - 8PM</p>
-                            <p class="mb-0">Sunday : Closed</p>
+                            <p class="mb-1">Monday – Thursday : 9 AM – 6 PM</p>
+                            <p class="mb-0">Friday : Closed</p>
                         </div>
                     </div>
 
-                    <!-- Contact Form -->
+
                     <div class="col-md-7">
-                        <div class="p-4 border rounded-4 shadow-sm bg-white contact-form">
+                        <div class="p-4 border rounded-4 shadow-sm bg-white contact-form" >
                             <h4 class="mb-4">Send us a Message</h4>
 
                             <form method="POST" action="contact.php">
@@ -353,10 +690,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </section>
 
+        
         <!-- Google Map -->
-        <section class="pb-5">
+        <section class="contact-hero pb-5">
             <div class="container">
-                <div class="rounded-4 overflow-hidden shadow-sm">
+                <div class="overflow-hidden shadow-sm" >
 
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d13825.0135665653!2d77.53063059926606!3d29.97214700770978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d29.977221399999998!2d77.5325189!4m5!1s0x390eeb00c43a1857%3A0xa052912c9a4ab24!2sAali%20ki%20chungi%20gali%20no%2010%2C%203670%2C%20Purani%20Mandi%2C%20Saharanpur%2C%20Uttar%20Pradesh%20247001!3m2!1d29.9777584!2d77.53334699999999!5e0!3m2!1sen!2sin!4v1764159997361!5m2!1sen!2sin"
@@ -366,45 +704,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </section>
 
 
-        <!-- ABOUT HERO -->
-        <section class="about-hero py-5">
-            <div class="container text-center">
-                <h1 class="fw-bold mb-3 text-wood-brown">About Our Wooden Handicrafts</h1>
-                <p class="lead text-muted mx-auto about-intro">
-                    We craft premium wooden art with a deep connection to Indian heritage and design.
-                    Every product is handmade with precision, passion, and emotions that turn wood into art.
-                </p>
-            </div>
-        </section>
-        <section class="py-5">
-            <div class="container">
-                <div class="row align-items-center">
 
-                    <div class="col-md-6 mb-4">
-                        <img src="assets/image/about.png" class="img-fluid rounded-4 shadow about-img" alt="About Wooden Handicrafts">
-                    </div>
-
-                    <div class="col-md-6">
-                        <h3 class="fw-bold text-wood-brown">Crafted With Natural Class</h3>
-                        <p class="text-muted">
-                            National Wood Craft is a trusted manufacturer of premium mango and sheesham wood decor and utility products. With a focus on fine craftsmanship, elegant finishing and long-lasting quality, we create products that enhance every home. Our wide range includes candle holders, wall decor, serving ware and organizers, supplied consistently to wholesalers, retailers and bulk buyers across regions, ensuring reliable quality, safe packaging and timely delivery for every order.
-                        </p>
-                        <p class="text-muted">
-                            Our team of master artisans make each piece by hand using ethically sourced wood.
-                            We support Indian craft communities and bring global-level wooden home décor products to you.
-                        </p>
-
-
-                        <ul class="list-unstyled text-muted">
-                            <li class="mb-2"><i class="fa-solid fa-check text-forest me-2"></i>100% Handmade premium quality</li>
-                            <li class="mb-2"><i class="fa-solid fa-leaf text-forest me-2"></i>Sustainable & environment friendly</li>
-                            <li class="mb-2"><i class="fa-solid fa-star text-forest me-2"></i>Designed following global luxury standards</li>
-                        </ul>
-                    </div>
-
-                </div>
-            </div>
-        </section>
 
         <!-- <section class="py-5">
             <div class="container">
@@ -492,78 +792,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </section> -->
 
-        <section class="blog-section py-5">
-            <div class="container">
-                <h2 class="section-title text-center mb-4">Latest Blogs</h2>
-                
-                <div class="row g-4">
-
-                    <?php while ($b = $resultblog->fetch_assoc()): ?>
-                        <div class="col-md-4">
-                            <div class="blog-card shadow-sm">
-                                <img src="uploads/blog/<?= htmlspecialchars($b['blog_image']) ?>"
-                                    class="img-fluid blog-img" alt="Blog Image">
-
-                                <div class="blog-content p-3">
-                                    <h4 class="blog-title"><?= htmlspecialchars($b['blogtitle']) ?></h4>
-
-                                    <p class="blog-desc text-muted">
-                                        <?= htmlspecialchars(substr($b['metadescription'], 0, 120)) ?>...
-                                    </p>
-
-                                    <a href="blog-details.php?slug=<?= $b['slug'] ?>" class="btn btn-forest">
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endwhile; ?>
-
-                </div>
-            </div>
-        </section>
 
 
-        <!-- WHY CHOOSE US -->
-        <section class="why-choose-us py-5">
-            <div class="text-center mb-4">
-                <h3 class="fw-bold text-wood-brown">Why Choose Us</h3>
-            </div>
 
-            <div class="card-bg ">
-                <div class="container text-center">
-                    <div class="row g-4">
 
-                        <div class="col-md-4">
-                            <div class="p-4 border-0 shadow-sm rounded-4 bg-white h-100 card-hover">
-                                <i class="fa-solid fa-gem fa-2x mb-3 text-wood-brown"></i>
-                                <h5 class="fw-bold">Premium Quality</h5>
-                                <p class="text-muted small">We never compromise on finish, durability, and premium feel.</p>
-                            </div>
-                        </div>
 
-                        <div class="col-md-4">
-                            <div class="p-4 border-0 shadow-sm rounded-4 bg-white h-100 card-hover">
-                                <i class="fa-solid fa-hands-holding fa-2x mb-3 text-wood-brown"></i>
-                                <h5 class="fw-bold">Authentic Craftsmanship</h5>
-                                <p class="text-muted small">Products are made by skilled craft artisans with decades of experience.</p>
-                            </div>
-                        </div>
 
-                        <div class="col-md-4">
-                            <div class="p-4 border-0 shadow-sm rounded-4 bg-white h-100 card-hover">
-                                <i class="fa-solid fa-globe fa-2x mb-3 text-wood-brown"></i>
-                                <h5 class="fw-bold">Global Shipping</h5>
-                                <p class="text-muted small">Our wooden art goes worldwide with safe packaging.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <?php include 'components/Footer.php' ?>
+        <?php include 'components/w-chat.php' ?>
 
     </div>
 
@@ -572,6 +809,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <!-- Custom js  -->
     <script src="assets/js/main.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script> -->
+    <script>
+        AOS.init();
+    </script>
+
 
 </body>
 

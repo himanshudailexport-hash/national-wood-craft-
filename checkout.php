@@ -71,13 +71,13 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         </div>
 
         <script>
-          // Clear localStorage cart
+          
           localStorage.removeItem("cartItems");
 
-          // 🔥 VERY IMPORTANT — Update cart badge immediately
+          //  Update cart badge immediately
           window.dispatchEvent(new Event("cart-updated"));
 
-          // Empty checkout UI
+          
           const items = document.getElementById("order-items");
           if (items) items.innerHTML = "<p class='text-muted text-center'>Your cart is now empty</p>";
 

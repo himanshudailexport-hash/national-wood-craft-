@@ -92,12 +92,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         .text-wood-brown {
-            color: var(--wood-brown) !important;
+            color: var(--wood-brown) ;
         }
 
         .btn-sand {
             background-color: var(--forest);
-            color: #fff !important;
+            color: #fff ;
             border: none;
             border-radius: 50px;
             padding: 0.75rem 1.5rem;
@@ -105,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         .btn-sand:hover {
             background-color: var(--sand);
-            color: #fff !important;
+            color: #fff ;
         }
 
         .form-control {

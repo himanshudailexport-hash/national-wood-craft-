@@ -28,9 +28,7 @@ thumbs.forEach((thumb) => {
   });
 });
 
-
-
-// cart function 
+// cart function
 
 function loadCart() {
   return JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -109,3 +107,10 @@ function removeItem(index) {
 }
 
 document.addEventListener("DOMContentLoaded", renderCart);
+
+// AOs for the Animation
+AOS.init({
+  duration: 900,
+  easing: "ease-out-cubic",
+  once: true,
+});

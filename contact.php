@@ -104,8 +104,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <hr>
 
                         <h6 class="fw-bold mb-2"><i class="fa-regular fa-clock me-2 text-wood-brown"></i>Business Hours</h6>
-                        <p class="mb-1">Mon - Sat : 10AM - 8PM</p>
-                        <p class="mb-0">Sunday : Closed</p>
+                        <p class="mb-1">Monday – Thursday : 9 AM – 6 PM</p>
+                        <p class="mb-0">Friday : Closed</p>
+
                     </div>
                 </div>
 

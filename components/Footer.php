@@ -3,9 +3,14 @@
 
         <!-- BRAND + DESCRIPTION -->
         <div class="footer-col">
-            <h4 class="footer-brand">
+            <!-- <h4 class="footer-brand">
                 <i class="fa-solid fa-tree me-2"></i> WOOD & HANDICRAFTS
-            </h4>
+            </h4> -->
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.php">
+            <img src="assets/image/logo-nwc.png" alt="loading.." height="70px">
+            <!-- <img src="assets/image/logo-nwc.png" alt="loading.." height="70px"> -->
+            <!-- <p >Natonal wood craf</p> -->
+        </a>
             <p class="footer-text">
                 Handcrafted mango wood decor made by skilled artisans.
                 Unique, natural & premium wooden masterpieces for modern homes.
@@ -30,6 +35,7 @@
                 <li><a href="#">Shipping Policy</a></li>
                 <li><a href="#">Return Policy</a></li>
                 <li><a href="#">Order Tracking</a></li>
+                <li><a href="#">Our Blogs</a></li>
             </ul>
         </div>
 
@@ -47,10 +53,11 @@
                 <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
             </div>
         </div>
     </div>
-
+    <hr>
     <div class="footer-bottom">
         © <?= date('Y') ?> Wood & Handicrafts. All rights reserved.
         <div class="credits">

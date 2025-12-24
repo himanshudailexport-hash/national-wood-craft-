@@ -81,7 +81,7 @@ $result = $con->query($sql);
                             <div class="card border-0 shadow-sm product-box h-100">
                                 <img src="<?= $image ?>" class="card-img-top rounded-top-4" alt="<?= $name ?>">
 
-                                <div class="product-info text-center p-3">
+                                <div class="product-info text-center p-3" data-aos="zoom-in-up" data-aos-delay="300">
                                     <h3 class="fw-semibold text-wood-brown fs-6"><?= $name ?></h3>
                                     <p class="price fw-bold text-forest mb-1">₹<?= $price ?></p>
                                     <p class="text-muted small mb-3"><?= $category_name ?></p>
