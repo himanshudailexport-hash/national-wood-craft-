@@ -5,9 +5,9 @@ $pass = "";
 $dbname = "nwc"; 
 
 // $host = "localhost";
-// $user = "u371702595_nwc"; 
-// $pass = "Nationalwoodcraft@123nwc"; 
-// $dbname = "u371702595_nwc"; 
+// $user = "u371702595_nwoods"; 
+// $pass = "Nwoods@123"; 
+// $dbname = "u371702595_nwoods"; 
 
 $con = new mysqli($host, $user, $pass, $dbname);
 

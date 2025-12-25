@@ -28,7 +28,6 @@
             <h1 class="fw-bold mb-3 text-wood-brown">About Our Wooden Handicrafts</h1>
             <p class="lead text-muted mx-auto about-intro">
                 We craft premium wooden art with a deep connection to Indian heritage and design.
-                Every product is handmade with precision, passion, and emotions that turn wood into art.
             </p>
         </div>
     </section>
@@ -63,6 +62,56 @@
             </div>
         </div>
     </section>
+
+    <!-- OUR MISSION & VISION -->
+<section class="mission-vision py-5">
+  <div class="container">
+
+    <div class="text-center mb-5">
+      <h3 class="fw-bold text-wood-brown">Our Mission & Vision</h3>
+      <p class="text-muted mx-auto" style="max-width: 700px;">
+        Driven by craftsmanship, quality materials, and long-term customer trust.
+      </p>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+
+      <!-- MISSION -->
+      <div class="col-md-6">
+        <div class="mv-card h-100">
+          <div class="mv-icon">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h5 class="fw-bold text-wood-brown">Our Mission</h5>
+          <p class="text-muted">
+            Our mission is to create reliable wooden products that combine good
+            quality, clean finishing, and practical design. We focus on meeting
+            customer needs through consistent work, skilled hands, and careful
+            use of quality wood.
+          </p>
+        </div>
+      </div>
+
+      <!-- VISION -->
+      <div class="col-md-6">
+        <div class="mv-card h-100">
+          <div class="mv-icon">
+            <i class="fa-solid fa-eye"></i>
+          </div>
+          <h5 class="fw-bold text-wood-brown">Our Vision</h5>
+          <p class="text-muted">
+            Our vision is to grow as a trusted wooden products manufacturer,
+            known for honest work, product consistency, and long-term
+            relationships with customers across India and global markets.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
 
     <!-- WHY CHOOSE US -->
     <section class="why-choose-us py-5">

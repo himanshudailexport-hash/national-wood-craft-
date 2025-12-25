@@ -24,10 +24,10 @@
 <body>
 
     <header class="modern-header shadow-sm sticky-top">
-        <nav class="navbar navbar-expand-lg container py-0">
+        <nav class="navbar navbar-expand-lg container py-2">
 
-            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.php">
-                <img src="assets/image/logo-nwc.png" alt="loading.." height="70px">
+            <a class="" href="index.php">
+                <img src="assets/image/logo-nwc.png" alt="loading.." height="55px" width="auto">
                 <!-- <img src="assets/image/logo-nwc.png" alt="loading.." height="70px"> -->
                 <!-- <p >Natonal wood craf</p> -->
             </a>
@@ -61,7 +61,7 @@
                         </ul>
                     </li> -->
 
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link modern-link dropdown-toggle"
                             href="#"
                             id="productsDropdown"
@@ -77,7 +77,7 @@
                             <li><a class="dropdown-item" href="#">Wall Art</a></li>
                             <li><a class="dropdown-item" href="#">Kitchen Items</a></li>
                         </ul>
-                    </li>
+                    </li> -->
 
 
                     <li class="nav-item"><a class="nav-link modern-link" href="contact.php">Contact</a></li>

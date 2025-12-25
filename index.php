@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <?php include 'components/Header.php' ?>
         <!-- hero section start from here -->
-        <section class="container hero-section py-5">
+        <!-- <section class="container hero-section py-5">
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <h1 class="display-4 fw-bold text-wood-brown">Premium Mango Wood Handicrafts</h1>
@@ -93,9 +93,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
             </div>
         </section>
-        <hr>
+        <hr> -->
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/image/banner-1.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/image/banner-2.png" class="d-block w-100" alt="...">
+                </div>
+
+            </div>
+        </div>
+
         <!-- category section  -->
-        <section class="container mb-4">
+        <section class=" mt-2 py-4 px-4">
             <!-- <h2 class="text-center text-wood-brown mb-5 fw-bold">Shop by Category</h2> -->
             <div class="row g-4 justify-content-center">
 
@@ -104,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $imgPath = ltrim($cat['image_path'], './');
                 ?>
 
-                    <div class="col-md-3 col-sm-6" >
+                    <div class="col-md-3 col-sm-6">
                         <a href="product.php?category=<?php echo $cat['id']; ?>" style="text-decoration:none;">
                             <div class="category-mini-card">
                                 <img src="<?php echo $imgPath; ?>" alt="<?php echo $cat['name']; ?>">
@@ -120,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         <!-- ABOUT HERO -->
         <section class="about-hero py-5">
-            <div class="container text-center" >
+            <div class="container text-center">
                 <h1 class="fw-bold mb-3 text-wood-brown">About Our Wooden Handicrafts</h1>
                 <p class="lead text-muted mx-auto about-intro">
                     We craft premium wooden art with a deep connection to Indian heritage and design.
@@ -131,11 +143,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <div class="container">
                     <div class="row align-items-center">
 
-                        <div class="col-md-6 mb-4" >
+                        <div class="col-md-6 mb-4">
                             <img src="assets/image/about.png" class="img-fluid rounded-4 shadow about-img" alt="About Wooden Handicrafts">
                         </div>
 
-                        <div class="col-md-6" >
+                        <div class="col-md-6">
                             <h3 class="fw-bold text-wood-brown">Crafted With Natural Class</h3>
                             <p class="text-muted">
                                 National Wood Craft is a trusted manufacturer of premium mango and sheesham wood decor and utility products. With a focus on fine craftsmanship, elegant finishing and long-lasting quality, we create products that enhance every home. Our wide range includes candle holders, wall decor, serving ware and organizers, supplied consistently to wholesalers, retailers and bulk buyers across regions, ensuring reliable quality, safe packaging and timely delivery for every order.
@@ -181,9 +193,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </section> -->
 
-        
+        <section class="stats-section">
+            <div class="stat ">
+                <h2 class="count" data-target="1500">0</h2>
+                <p class="title">Happy Customers</p>
+                <span class="desc">Trusted clients across India</span>
+            </div>
 
-        <!-- <script>
+            <div class="stat divider">
+                <h2 class="count" data-target="120">0</h2>
+                <p class="title">Orders Delivered</p>
+                <span class="desc">On-time & quality deliveries</span>
+            </div>
+
+            <div class="stat divider">
+                <h2 class="count" data-target="10">0</h2>
+                <p class="title">Years Experience</p>
+                <span class="desc">Expertise in wooden craftsmanship</span>
+            </div>
+        </section>
+
+
+
+        <script>
             const counters = document.querySelectorAll('.count');
             let started = false;
 
@@ -221,7 +253,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     startCounting();
                 }
             });
-        </script> -->
+        </script>
 
 
         <!-- products   -->
@@ -286,7 +318,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </section>
 
-        
+
 
 
         <!-- <script>
@@ -537,6 +569,186 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </section>
 
+        <!-- <section class="faq-modern-alt">
+            <div class="container">
+                <div class="row g-4 align-items-center justify-center">
+                    <div>
+                        <h2 class="text-center">Frequently Asked Questions</h2>
+                    </div>
+
+
+
+                    <div class="col-lg-12">
+                        <div class="faq-list">
+
+                            <div class="faq-item">
+                                <span class="faq-number">01</span>
+                                <div>
+                                    <h5>What products does National Wood Craft manufacture?</h5>
+                                    <p>
+                                        We manufacture wooden home items, wall products, trays,
+                                        organizers, and other daily-use wooden products.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <span class="faq-number">02</span>
+                                <div>
+                                    <h5>Do you accept custom or bulk orders?</h5>
+                                    <p>
+                                        Yes, we accept customized designs and bulk orders as per
+                                        customer needs.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item ">
+                                <span class="faq-number">03</span>
+                                <div>
+                                    <h5>What type of wood is used in your products?</h5>
+                                    <p>
+                                        We mainly use quality mango wood selected for strength
+                                        and long-lasting use.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <span class="faq-number">04</span>
+                                <div>
+                                    <h5>Are your products suitable for hotels and businesses?</h5>
+                                    <p>
+                                        Yes, our products are suitable for homes, hotels, cafes,
+                                        offices, and retail buyers.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <span class="faq-number">05</span>
+                                <div>
+                                    <h5>Where is National Wood Craft located?</h5>
+                                    <p>
+                                        We are based in Uttar Pradesh and supply products to
+                                        different locations.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section> -->
+
+        <section class="faq-modern-alt">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-12 text-center mb-4"> <h2 class="text-white fw-bold">Frequently Asked Questions</h2> </div>
+                    <!-- LEFT CONTENT -->
+                    <div class="col-lg-5">
+                        <div class="faq-glass">
+                            <h2>Have Questions?</h2>
+                            <p>
+                                Find answers to the most common questions about our wooden
+                                products, materials, customization options, and business services.
+                            </p>
+                            <p>
+                                At National Wood Craft, we focus on quality craftsmanship,
+                                reliable supply, and long-term customer relationships.
+                            </p>
+                            <a href="contact.php"><span class="faq-badge">National Wood Craft</span></a>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT FAQ SECTION -->
+                    <div class="col-lg-7">
+                        <div class="faq-list">
+
+                            <!-- FAQ 1 -->
+                            <div class="faq-item">
+                                <span class="faq-number">01</span>
+                                <div class="faq-content">
+                                    <div class="faq-question">
+                                        <h5>What products does National Wood Craft manufacture?</h5>
+                                        <span class="faq-toggle">+</span>
+                                    </div>
+                                    <p class="faq-answer">
+                                        We manufacture wooden home items, wall products, trays,
+                                        organizers, and other daily-use wooden products.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 2 -->
+                            <div class="faq-item">
+                                <span class="faq-number">02</span>
+                                <div class="faq-content">
+                                    <div class="faq-question">
+                                        <h5>Do you accept custom or bulk orders?</h5>
+                                        <span class="faq-toggle">+</span>
+                                    </div>
+                                    <p class="faq-answer">
+                                        Yes, we accept customized designs and bulk orders as per
+                                        customer needs.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 3 -->
+                            <div class="faq-item">
+                                <span class="faq-number">03</span>
+                                <div class="faq-content">
+                                    <div class="faq-question">
+                                        <h5>What type of wood is used in your products?</h5>
+                                        <span class="faq-toggle">+</span>
+                                    </div>
+                                    <p class="faq-answer">
+                                        We mainly use quality mango wood selected for strength
+                                        and long-lasting use.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 4 -->
+                            <div class="faq-item">
+                                <span class="faq-number">04</span>
+                                <div class="faq-content">
+                                    <div class="faq-question">
+                                        <h5>Are your products suitable for hotels and businesses?</h5>
+                                        <span class="faq-toggle">+</span>
+                                    </div>
+                                    <p class="faq-answer">
+                                        Yes, our products are suitable for homes, hotels, cafes,
+                                        offices, and retail buyers.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- FAQ 5 -->
+                            <div class="faq-item">
+                                <span class="faq-number">05</span>
+                                <div class="faq-content">
+                                    <div class="faq-question">
+                                        <h5>Where is National Wood Craft located?</h5>
+                                        <span class="faq-toggle">+</span>
+                                    </div>
+                                    <p class="faq-answer">
+                                        We are based in Uttar Pradesh and supply products to
+                                        different locations.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
 
 
         <section class="blog-section py-5">
@@ -569,45 +781,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 </div>
             </div>
         </section>
-        <!-- WHY CHOOSE US -->
-        <section class="why-choose-us py-5">
-            <div class="text-center mb-4" data-aos="fade-buttom" data-aos-delay="300">
-                <h3 class="fw-bold text-wood-brown">Why Choose Us</h3>
-            </div>
 
-            <div class="card-bg ">
-                <div class="container text-center">
-                    <div class="row g-4">
 
-                        <div class="col-md-4" data-aos="fade-right">
-                            <div class="p-4 border-0 shadow-sm rounded-4 bg-white h-100 card-hover">
-                                <i class="fa-solid fa-gem fa-2x mb-3 text-wood-brown"></i>
-                                <h5 class="fw-bold">Premium Quality</h5>
-                                <p class="text-muted small">We never compromise on finish, durability, and premium feel.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4" data-aos="fade-up">
-                            <div class="p-4 border-0 shadow-sm rounded-4 bg-white h-100 card-hover">
-                                <i class="fa-solid fa-hands-holding fa-2x mb-3 text-wood-brown"></i>
-                                <h5 class="fw-bold">Authentic Craftsmanship</h5>
-                                <p class="text-muted small">Products are made by skilled craft artisans with decades of experience.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4" data-aos="fade-left">
-                            <div class="p-4 border-0 shadow-sm rounded-4 bg-white h-100 card-hover">
-                                <i class="fa-solid fa-globe fa-2x mb-3 text-wood-brown"></i>
-                                <h5 class="fw-bold">Global Shipping</h5>
-                                <p class="text-muted small">Our wooden art goes worldwide with safe packaging.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        
         <!-- Hero Section -->
         <section class="contact-hero py-5 text-center">
             <div class="container" data-aos="fade-buttom" data-aos-delay="300">
@@ -623,7 +798,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <section class="contact-hero pb-5">
             <div class="container">
                 <div class="row g-4">
-                    <div class="col-md-5" >
+                    <div class="col-md-5">
                         <div class="p-4 border rounded-4 shadow-sm bg-white h-100 contact-info">
                             <h4 class="mb-3">Contact Information</h4>
 
@@ -637,14 +812,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <hr>
 
                             <h6 class="fw-bold mb-2"><i class="fa-regular fa-clock me-2 text-wood-brown"></i>Business Hours</h6>
-                            <p class="mb-1">Monday – Thursday : 9 AM – 6 PM</p>
+                            <p class="mb-1">Sunday – Thursday : 9 AM – 6 PM</p>
                             <p class="mb-0">Friday : Closed</p>
                         </div>
                     </div>
 
 
                     <div class="col-md-7">
-                        <div class="p-4 border rounded-4 shadow-sm bg-white contact-form" >
+                        <div class="p-4 border rounded-4 shadow-sm bg-white contact-form">
                             <h4 class="mb-4">Send us a Message</h4>
 
                             <form method="POST" action="contact.php">
@@ -690,11 +865,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </div>
         </section>
 
-        
+
         <!-- Google Map -->
         <section class="contact-hero pb-5">
             <div class="container">
-                <div class="overflow-hidden shadow-sm" >
+                <div class="overflow-hidden shadow-sm">
 
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d13825.0135665653!2d77.53063059926606!3d29.97214700770978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d29.977221399999998!2d77.5325189!4m5!1s0x390eeb00c43a1857%3A0xa052912c9a4ab24!2sAali%20ki%20chungi%20gali%20no%2010%2C%203670%2C%20Purani%20Mandi%2C%20Saharanpur%2C%20Uttar%20Pradesh%20247001!3m2!1d29.9777584!2d77.53334699999999!5e0!3m2!1sen!2sin!4v1764159997361!5m2!1sen!2sin"
@@ -796,13 +971,58 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 
+        <!-- WHY CHOOSE US -->
+        <section class="why-choose-us py-5">
+            <div class="text-center mb-4" data-aos="fade-buttom" data-aos-delay="300">
+                <h3 class="fw-bold text-wood-brown">Why Choose Us</h3>
+            </div>
 
+            <div class="card-bg ">
+                <div class="container text-center">
+                    <div class="row g-4">
+
+                        <div class="col-md-4" data-aos="fade-right">
+                            <div class="p-4 border-0 shadow-sm rounded-4 bg-white h-100 card-hover">
+                                <i class="fa-solid fa-gem fa-2x mb-3 text-wood-brown"></i>
+                                <h5 class="fw-bold">Premium Quality</h5>
+                                <p class="text-muted small">We never compromise on finish, durability, and premium feel.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4" data-aos="fade-up">
+                            <div class="p-4 border-0 shadow-sm rounded-4 bg-white h-100 card-hover">
+                                <i class="fa-solid fa-hands-holding fa-2x mb-3 text-wood-brown"></i>
+                                <h5 class="fw-bold">Authentic Craftsmanship</h5>
+                                <p class="text-muted small">Products are made by skilled craft artisans with decades of experience.</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4" data-aos="fade-left">
+                            <div class="p-4 border-0 shadow-sm rounded-4 bg-white h-100 card-hover">
+                                <i class="fa-solid fa-globe fa-2x mb-3 text-wood-brown"></i>
+                                <h5 class="fw-bold">Global Shipping</h5>
+                                <p class="text-muted small">Our wooden art goes worldwide with safe packaging.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
         <?php include 'components/Footer.php' ?>
         <?php include 'components/w-chat.php' ?>
 
     </div>
+
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
 
     <!-- Bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

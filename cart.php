@@ -31,7 +31,7 @@
               <div id="cart-items"></div>
 
               <div class="text-start mt-4">
-                <a href="product.php" class="btn btn-outline-dark rounded-pill px-4 fw-semibold">
+                <a href="product.php" class="btn btn-forest px-4 fw-semibold">
                   ← Continue Shopping
                 </a>
               </div>
